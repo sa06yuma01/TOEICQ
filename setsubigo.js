@@ -1,31 +1,33 @@
 let QArray = [
 	// 名詞:1, 動詞:2, 副詞:3, 形容詞:4
-	['~sion', 1],
-	['~tion', 1],
-	['~ance', 1],
-	['~ence', 1],
-	['~ment', 1],
-	['~dom', 1],
-	['~ty', 1],
-	['~cy', 1],
-	['~th', 1],
-	['~ive', 1],
-	['~or', 1],
-	['~ist', 1],
-	['~ee', 1],
-	['~er', 1],
-	['~fy', 2],
-	['~en', 2],
-	['~ize', 2],
-	['~ly', 3],
-	['~ant', 4],
-	['~ent', 4],
-	['~ful', 4],
-	['~able', 4],
-	['~ess', 4],
-	['~y', 4],
-	['~ive', 4],
-	['~ous', 4]
+	['~sion', 1, 'profession(職業)'],
+	['~tion', 1, 'completion(完成)'],
+	['~ance', 1, 'importance(重要さ)'],
+	['~ence', 1, 'convenience(利便性)'],
+	['~ment', 1, 'development(開発)'],
+	['~dom', 1, 'freedom(自由)'],
+	['~ty', 1, 'ability(能力)'],
+	['~cy', 1, 'policy(方針)'],
+	['~th', 1, 'health(健康)'],
+	['~ive', 1, 'representive(担当者)'],
+	['~or', 1, 'investor(投資家)'],
+	['~ist', 1, 'economist(経済学者)'],
+	['~ee', 1, 'employee(従業員)'],
+	['~er', 1, 'manager(主任)'],
+	['~fy', 2, 'specify(具体的に言う)'],
+	['~en', 2, 'shorten(短くする)'],
+	['~ize', 2, 'realize(認識する)'],
+	['~ly', 3, 'usefully(役に立って)'],
+	['~ant', 4, 'important(重要な)'],
+	['~ent', 4, 'convenient(便利な)'],
+	['~ful', 4, 'useful(役に立つ)'],
+	['~able', 4, 'reliable(信頼できる)'],
+	['~ess', 4, 'careless(不注意な)'],
+	['~y', 4, 'healthy(健康的な)'],
+	['~ic', 4, 'specific(具体的な)'],
+	['~al', 4, 'real(本物の)'],
+	['~ive', 4, 'expensive(高価な)'],
+	['~ous', 4, 'various(多様な)']
 ];
 
 var dispedQnumArray = new Array(QArray.length);
@@ -226,6 +228,8 @@ function DispQ(status) {
 			Qnum = SelectQ(0);
 			let id_Qsentence = document.getElementById('Qsentence');
 			id_Qsentence.innerHTML = QArray[Qnum][0];
+			let id_Qexample = document.getElementById('Qexample');
+			id_Qexample.innerHTML = "例: " + QArray[Qnum][2];
 		}
 	}
 	else if(status == 1){
@@ -236,6 +240,8 @@ function DispQ(status) {
 			// 問題文表示
 			let id_Qsentence = document.getElementById('Qsentence');
 			id_Qsentence.innerHTML = QArray[retryArray1[Qcnt - 1]][0];
+			let id_Qexample = document.getElementById('Qexample');
+			id_Qexample.innerHTML = "例: " + QArray[retryArray1[Qcnt - 1]][2];
 		}
 	}
 	else if(status == 2){
@@ -246,6 +252,8 @@ function DispQ(status) {
 			// 問題文表示
 			let id_Qsentence = document.getElementById('Qsentence');
 			id_Qsentence.innerHTML = QArray[retryArray2[Qcnt - 1]][0];
+			let id_Qexample = document.getElementById('Qexample');
+			id_Qexample.innerHTML = "例: " + QArray[retryArray2[Qcnt - 1]][2];
 		}
 	}
 
@@ -340,6 +348,8 @@ function Finish(status) {
 	// 問題文非表示
 	let id_Qsentence = document.getElementById('Qsentence');
 	id_Qsentence.innerHTML = "";
+	let id_Qexample = document.getElementById('Qexample');
+	id_Qexample.innerHTML = "";
 
 	// 選択ボタン非表示
 	if(status == 0){
