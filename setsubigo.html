@@ -1,0 +1,65 @@
+<html>
+
+<head>
+	<title>接尾語</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+	<h1 align="center">TOEICQ</h1>
+
+	<h2 align="center">接尾語</h2>
+
+	<div align="center" id="score" class="none">
+		<h2>スコア</h2>
+		<h2><div id="scoreNum"></div></h2>
+	</div>
+
+	<div align="center" id="startQ">
+		<button type="button" id="startButton">最初からスタート</button>
+	</div>
+
+	<div class="childInline">
+		<h3 align="center" style="margin-right: 10px;"><div id="Qcnt"></div></h3>
+		<h2 align="center"><div id="Qsentence"></div></h2>
+	</div>
+
+	<div align="center" id="exampleOn" class="none">
+		<button type="button" id="exampleOnButton" style="margin-bottom: 20px;">例を表示</button>
+	</div>
+
+	<div align="center" id="exampleOff" class="childInline none">
+		<div style="display: flex; justify-content: center; align-items: center; gap: 10px;">
+			<h4><div id="Qexample"></div></h4>
+			<button type="button" id="exampleOffButton">例を非表示</button>
+		</div>
+	</div>
+
+	<div align="center" id="options" class="childInline none">
+		<div class="childCenter">
+			<button type="button" id="option1" class="selectButton">名詞</button>
+			<button type="button" id="option2" class="selectButton">動詞</button>
+			<button type="button" id="option3" class="selectButton">副詞</button>
+			<button type="button" id="option4" class="selectButton">形容詞</button>
+		</div>
+	</div>
+	<br>
+	<div align="center" id="result"></div>
+	<br>
+	<div align="center" id="next" class="none">
+		<button type="button" id="nextButton">次へ</button>
+	</div>
+	<div align="center" id="retry" class="none">
+		<button type="button" id="retryButton">間違えた問題を復習する</button>
+	</div>
+	<br>
+
+	<div align="center">
+		<a href="index.html">トップページへ戻る</a>
+	</div>
+
+	<script type="text/javascript" src="/setsubigo.js"></script>
+</body>
+
+</html>

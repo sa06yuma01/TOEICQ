@@ -1,0 +1,24 @@
+.childInline{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.childCenter{
+	margin: 0 auto
+}
+
+.none{
+	display: none;
+}
+
+.selectButton{
+	background-color: #ffffff;
+	border: 2px solid;
+	border-color: #FBA834;
+	border-radius: 10%;
+}
+
+.selectButton:hover{
+	opacity: 0.5;
+}
