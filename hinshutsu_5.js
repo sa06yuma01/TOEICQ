@@ -57,13 +57,16 @@ var retryArray1 = new Array();
 var retryArray2 = new Array();
 var Qcnt = 0;
 var Qnum = 0;
+var word = 0;	// 0:英語->日本語 1:日本語->英語
 
 // 正解不正解数
 var correct = 0;
 var incorrect = 0;
 
-let startButton = document.getElementById('startButton');
-startButton.addEventListener('click', StartQ);
+let startButton0 = document.getElementById('startButton0');
+startButton0.addEventListener('click', ChangeWord0);
+let startButton1 = document.getElementById('startButton1');
+startButton1.addEventListener('click', ChangeWord1);
 
 function Ans1_s() {
 	let id_option2 = document.getElementById('option2');
@@ -208,6 +211,15 @@ function CallSpeak2() {
 	Speak(sentents);
 }
 
+function ChangeWord0() {
+	word = 0;
+	StartQ();
+}
+function ChangeWord1() {
+	word = 1;
+	StartQ();
+}
+
 function StartQ() {
 	Qcnt = 0;
 	Qnum = 0;
@@ -268,25 +280,41 @@ function DispQ(status) {
 		else {
 			// 問題文表示
 			SelectQ(0);
-			let id_Qsentence = document.getElementById('Qsentence');
-			let dispNumInOption = dispedQnumArray[Qcnt - 1][4];
-			id_Qsentence.innerHTML = QArray[dispedQnumArray[Qcnt - 1][dispNumInOption]][0];
-
-			// 聞くボタン表示
-			let id_speak = document.getElementById('speak');
-			id_speak.style.display = 'block';
-			id_speak.removeEventListener('click', CallSpeak0);
-			id_speak.addEventListener('click', CallSpeak0);
-
-			// 選択肢表示
-			let id_option1 = document.getElementById('option1');
-			id_option1.innerHTML = QArray[dispedQnumArray[Qcnt - 1][0]][1];
-			let id_option2 = document.getElementById('option2');
-			id_option2.innerHTML = QArray[dispedQnumArray[Qcnt - 1][1]][1];
-			let id_option3 = document.getElementById('option3');
-			id_option3.innerHTML = QArray[dispedQnumArray[Qcnt - 1][2]][1];
-			let id_option4 = document.getElementById('option4');
-			id_option4.innerHTML = QArray[dispedQnumArray[Qcnt - 1][3]][1];
+			if(word == 0){
+				let id_Qsentence = document.getElementById('Qsentence');
+				let dispNumInOption = dispedQnumArray[Qcnt - 1][4];
+				id_Qsentence.innerHTML = QArray[dispedQnumArray[Qcnt - 1][dispNumInOption]][0];	
+				// 聞くボタン表示
+				let id_speak = document.getElementById('speak');
+				id_speak.style.display = 'block';
+				id_speak.removeEventListener('click', CallSpeak0);
+				id_speak.addEventListener('click', CallSpeak0);
+				
+				// 選択肢表示
+				let id_option1 = document.getElementById('option1');
+				id_option1.innerHTML = QArray[dispedQnumArray[Qcnt - 1][0]][1];
+				let id_option2 = document.getElementById('option2');
+				id_option2.innerHTML = QArray[dispedQnumArray[Qcnt - 1][1]][1];
+				let id_option3 = document.getElementById('option3');
+				id_option3.innerHTML = QArray[dispedQnumArray[Qcnt - 1][2]][1];
+				let id_option4 = document.getElementById('option4');
+				id_option4.innerHTML = QArray[dispedQnumArray[Qcnt - 1][3]][1];
+			}
+			if(word == 1){
+				let id_Qsentence = document.getElementById('Qsentence');
+				let dispNumInOption = dispedQnumArray[Qcnt - 1][4];
+				id_Qsentence.innerHTML = QArray[dispedQnumArray[Qcnt - 1][dispNumInOption]][1];	
+				
+				// 選択肢表示
+				let id_option1 = document.getElementById('option1');
+				id_option1.innerHTML = QArray[dispedQnumArray[Qcnt - 1][0]][0];
+				let id_option2 = document.getElementById('option2');
+				id_option2.innerHTML = QArray[dispedQnumArray[Qcnt - 1][1]][0];
+				let id_option3 = document.getElementById('option3');
+				id_option3.innerHTML = QArray[dispedQnumArray[Qcnt - 1][2]][0];
+				let id_option4 = document.getElementById('option4');
+				id_option4.innerHTML = QArray[dispedQnumArray[Qcnt - 1][3]][0];
+			}
 		}
 	}
 	else if (status == 1) {
@@ -295,25 +323,42 @@ function DispQ(status) {
 		}
 		else {
 			// 問題文表示
-			let id_Qsentence = document.getElementById('Qsentence');
-			let dispNumInOption = retryArray1[Qcnt - 1][4];
-			id_Qsentence.innerHTML = QArray[retryArray1[Qcnt - 1][dispNumInOption]][0];
-
-			// 聞くボタン表示
-			let id_speak = document.getElementById('speak');
-			id_speak.style.display = 'block';
-			id_speak.removeEventListener('click', CallSpeak1);
-			id_speak.addEventListener('click', CallSpeak1);
-
-			// 選択肢表示
-			let id_option1 = document.getElementById('option1');
-			id_option1.innerHTML = QArray[retryArray1[Qcnt - 1][0]][1];
-			let id_option2 = document.getElementById('option2');
-			id_option2.innerHTML = QArray[retryArray1[Qcnt - 1][1]][1];
-			let id_option3 = document.getElementById('option3');
-			id_option3.innerHTML = QArray[retryArray1[Qcnt - 1][2]][1];
-			let id_option4 = document.getElementById('option4');
-			id_option4.innerHTML = QArray[retryArray1[Qcnt - 1][3]][1];
+			if(word == 0){
+				let id_Qsentence = document.getElementById('Qsentence');
+				let dispNumInOption = retryArray1[Qcnt - 1][4];
+				id_Qsentence.innerHTML = QArray[retryArray1[Qcnt - 1][dispNumInOption]][1];
+				
+				// 聞くボタン表示
+				let id_speak = document.getElementById('speak');
+				id_speak.style.display = 'block';
+				id_speak.removeEventListener('click', CallSpeak1);
+				id_speak.addEventListener('click', CallSpeak1);
+				
+				// 選択肢表示
+				let id_option1 = document.getElementById('option1');
+				id_option1.innerHTML = QArray[retryArray1[Qcnt - 1][0]][0];
+				let id_option2 = document.getElementById('option2');
+				id_option2.innerHTML = QArray[retryArray1[Qcnt - 1][1]][0];
+				let id_option3 = document.getElementById('option3');
+				id_option3.innerHTML = QArray[retryArray1[Qcnt - 1][2]][0];
+				let id_option4 = document.getElementById('option4');
+				id_option4.innerHTML = QArray[retryArray1[Qcnt - 1][3]][0];
+			}
+			if(word == 1){
+				let id_Qsentence = document.getElementById('Qsentence');
+				let dispNumInOption = retryArray1[Qcnt - 1][4];
+				id_Qsentence.innerHTML = QArray[retryArray1[Qcnt - 1][dispNumInOption]][0];
+				
+				// 選択肢表示
+				let id_option1 = document.getElementById('option1');
+				id_option1.innerHTML = QArray[retryArray1[Qcnt - 1][0]][1];
+				let id_option2 = document.getElementById('option2');
+				id_option2.innerHTML = QArray[retryArray1[Qcnt - 1][1]][1];
+				let id_option3 = document.getElementById('option3');
+				id_option3.innerHTML = QArray[retryArray1[Qcnt - 1][2]][1];
+				let id_option4 = document.getElementById('option4');
+				id_option4.innerHTML = QArray[retryArray1[Qcnt - 1][3]][1];
+			}
 		}
 	}
 	else if (status == 2) {
@@ -322,25 +367,48 @@ function DispQ(status) {
 		}
 		else {
 			// 問題文表示
-			let id_Qsentence = document.getElementById('Qsentence');
-			let dispNumInOption = retryArray2[Qcnt - 1][4];
-			id_Qsentence.innerHTML = QArray[retryArray2[Qcnt - 1][dispNumInOption]][0];
+			if(word == 0){
+				let id_Qsentence = document.getElementById('Qsentence');
+				let dispNumInOption = retryArray2[Qcnt - 1][4];
+				id_Qsentence.innerHTML = QArray[retryArray2[Qcnt - 1][dispNumInOption]][0];
+				
+				// 聞くボタン表示
+				let id_speak = document.getElementById('speak');
+				id_speak.style.display = 'block';
+				id_speak.removeEventListener('click', CallSpeak2);
+				id_speak.addEventListener('click', CallSpeak2);
 
-			// 聞くボタン表示
-			let id_speak = document.getElementById('speak');
-			id_speak.style.display = 'block';
-			id_speak.removeEventListener('click', CallSpeak2);
-			id_speak.addEventListener('click', CallSpeak2);
+				// 選択肢表示
+				let id_option1 = document.getElementById('option1');
+				id_option1.innerHTML = QArray[retryArray2[Qcnt - 1][0]][1];
+				let id_option2 = document.getElementById('option2');
+				id_option2.innerHTML = QArray[retryArray2[Qcnt - 1][1]][1];
+				let id_option3 = document.getElementById('option3');
+				id_option3.innerHTML = QArray[retryArray2[Qcnt - 1][2]][1];
+				let id_option4 = document.getElementById('option4');
+				id_option4.innerHTML = QArray[retryArray2[Qcnt - 1][3]][1];
+			}
+			if(word == 1){
+				let id_Qsentence = document.getElementById('Qsentence');
+				let dispNumInOption = retryArray2[Qcnt - 1][4];
+				id_Qsentence.innerHTML = QArray[retryArray2[Qcnt - 1][dispNumInOption]][1];
+				
+				// 聞くボタン表示
+				let id_speak = document.getElementById('speak');
+				id_speak.style.display = 'block';
+				id_speak.removeEventListener('click', CallSpeak2);
+				id_speak.addEventListener('click', CallSpeak2);
 
-			// 選択肢表示
-			let id_option1 = document.getElementById('option1');
-			id_option1.innerHTML = QArray[retryArray2[Qcnt - 1][0]][1];
-			let id_option2 = document.getElementById('option2');
-			id_option2.innerHTML = QArray[retryArray2[Qcnt - 1][1]][1];
-			let id_option3 = document.getElementById('option3');
-			id_option3.innerHTML = QArray[retryArray2[Qcnt - 1][2]][1];
-			let id_option4 = document.getElementById('option4');
-			id_option4.innerHTML = QArray[retryArray2[Qcnt - 1][3]][1];
+				// 選択肢表示
+				let id_option1 = document.getElementById('option1');
+				id_option1.innerHTML = QArray[retryArray2[Qcnt - 1][0]][0];
+				let id_option2 = document.getElementById('option2');
+				id_option2.innerHTML = QArray[retryArray2[Qcnt - 1][1]][0];
+				let id_option3 = document.getElementById('option3');
+				id_option3.innerHTML = QArray[retryArray2[Qcnt - 1][2]][0];
+				let id_option4 = document.getElementById('option4');
+				id_option4.innerHTML = QArray[retryArray2[Qcnt - 1][3]][0];
+			}
 		}
 	}
 
