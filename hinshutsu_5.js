@@ -326,28 +326,13 @@ function DispQ(status) {
 			if(word == 0){
 				let id_Qsentence = document.getElementById('Qsentence');
 				let dispNumInOption = retryArray1[Qcnt - 1][4];
-				id_Qsentence.innerHTML = QArray[retryArray1[Qcnt - 1][dispNumInOption]][1];
+				id_Qsentence.innerHTML = QArray[retryArray1[Qcnt - 1][dispNumInOption]][0];
 				
 				// 聞くボタン表示
 				let id_speak = document.getElementById('speak');
 				id_speak.style.display = 'block';
 				id_speak.removeEventListener('click', CallSpeak1);
 				id_speak.addEventListener('click', CallSpeak1);
-				
-				// 選択肢表示
-				let id_option1 = document.getElementById('option1');
-				id_option1.innerHTML = QArray[retryArray1[Qcnt - 1][0]][0];
-				let id_option2 = document.getElementById('option2');
-				id_option2.innerHTML = QArray[retryArray1[Qcnt - 1][1]][0];
-				let id_option3 = document.getElementById('option3');
-				id_option3.innerHTML = QArray[retryArray1[Qcnt - 1][2]][0];
-				let id_option4 = document.getElementById('option4');
-				id_option4.innerHTML = QArray[retryArray1[Qcnt - 1][3]][0];
-			}
-			if(word == 1){
-				let id_Qsentence = document.getElementById('Qsentence');
-				let dispNumInOption = retryArray1[Qcnt - 1][4];
-				id_Qsentence.innerHTML = QArray[retryArray1[Qcnt - 1][dispNumInOption]][0];
 				
 				// 選択肢表示
 				let id_option1 = document.getElementById('option1');
@@ -358,6 +343,21 @@ function DispQ(status) {
 				id_option3.innerHTML = QArray[retryArray1[Qcnt - 1][2]][1];
 				let id_option4 = document.getElementById('option4');
 				id_option4.innerHTML = QArray[retryArray1[Qcnt - 1][3]][1];
+			}
+			if(word == 1){
+				let id_Qsentence = document.getElementById('Qsentence');
+				let dispNumInOption = retryArray1[Qcnt - 1][4];
+				id_Qsentence.innerHTML = QArray[retryArray1[Qcnt - 1][dispNumInOption]][1];
+				
+				// 選択肢表示
+				let id_option1 = document.getElementById('option1');
+				id_option1.innerHTML = QArray[retryArray1[Qcnt - 1][0]][0];
+				let id_option2 = document.getElementById('option2');
+				id_option2.innerHTML = QArray[retryArray1[Qcnt - 1][1]][0];
+				let id_option3 = document.getElementById('option3');
+				id_option3.innerHTML = QArray[retryArray1[Qcnt - 1][2]][0];
+				let id_option4 = document.getElementById('option4');
+				id_option4.innerHTML = QArray[retryArray1[Qcnt - 1][3]][0];
 			}
 		}
 	}
