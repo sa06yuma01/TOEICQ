@@ -2,7 +2,7 @@ let QArray = [
 	['accordingly', 'それに従って'],
 	['as a result', '結果として'],
 	['anyway', 'とにかく'],
-	['beside', 'それに加えて'],
+	['besides', 'それに加えて'],
 	['consequently', '結果的に'],
 	['eventually', '最終的には'],
 	['furthermore', 'さらに'],
