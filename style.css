@@ -21,6 +21,13 @@
 	height: 30px;
 }
 
+.infoButton{
+	background-color: rgb(255, 242, 224);
+	border: 2px solid;
+	border-color: #FBA834;
+	border-radius: 5px;
+}
+
 .selectButton:hover{
 	opacity: 0.5;
 }
