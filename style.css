@@ -31,3 +31,7 @@
 .selectButton:hover{
 	opacity: 0.5;
 }
+
+.infoButton:hover{
+	opacity: 0.5;
+}
