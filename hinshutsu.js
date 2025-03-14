@@ -5,7 +5,6 @@ var dispedAnsArray = new Array(QArray.length);
 var retryArray1 = new Array();
 var retryArray2 = new Array();
 var Qcnt = 0;
-var Qnum = 0;
 var word = 0;	// 0:英語->日本語 1:日本語->英語
 
 // 正解不正解数
@@ -121,15 +120,17 @@ function Ans4_r2() {
 	CheckAnswer(3, 2);
 }
 function CallDispQ0() {
-	DispQ(0)
+	console.log("a:" + Qcnt);
+	DispQ(0);
+	console.log("c:" + Qcnt);
 	CallHiddenOption0();
 }
 function CallDispQ1() {
-	DispQ(1)
+	DispQ(1);
 	CallHiddenOption1();
 }
 function CallDispQ2() {
-	DispQ(2)
+	DispQ(2);
 	CallHiddenOption2();
 }
 function CallRetry1() {
@@ -392,7 +393,6 @@ function SelectWordPart(inputWord, inputPart) {
 
 function StartQ() {
 	Qcnt = 0;
-	Qnum = 0;
 	correct = 0;
 	incorrect = 0;
 	dispedQnumArray.length = 0;
@@ -447,11 +447,13 @@ function DispQ(status) {
 	if (status == 0) {
 		if (Qcnt > QArray.length) {
 			Finish(0);
+			return;
 		}
 		else {
 			// 問題文表示
 			SelectQ(0);
 			if(word == 0){
+				console.log("b:" + dispedQnumArray[Qcnt - 1]);
 				let id_Qsentence = document.getElementById('Qsentence');
 				let dispNumInOption = dispedQnumArray[Qcnt - 1][4];
 				id_Qsentence.innerHTML = QArray[dispedQnumArray[Qcnt - 1][dispNumInOption]][0];	
@@ -531,7 +533,7 @@ function DispOption(status) {
 		}
 		else {
 			// 問題文表示
-			SelectQ(0);
+			// SelectQ(0);
 			if (word == 0) {
 				// 選択肢表示
 				let id_option1 = document.getElementById('option1');
@@ -634,9 +636,10 @@ function SelectQ(status) {
 		
 		while (dispedAnsArray.indexOf(ansRandom) != -1) {
 			ansRandom = Math.floor(Math.random() * (QArray.length));
+			console.log("d");
 		}
 		dispedAnsArray[dispedAnsArray.length] = ansRandom;
-
+		
 		var optionRandom = Math.floor(Math.random() * 4);
 		var option = new Array(4);
 		for(let i = 0; i < 4; i++){
@@ -647,6 +650,7 @@ function SelectQ(status) {
 				var fakeRandom = Math.floor(Math.random() * (QArray.length));
 				var samefrag = 1;
 				while (fakeRandom == ansRandom || option.indexOf(fakeRandom) != -1 || samefrag == 1) {
+					console.log("e");
 					fakeRandom = Math.floor(Math.random() * (QArray.length));
 					samefrag = 1;
 					for(let k = 0; k < 4; k++){
@@ -666,8 +670,7 @@ function SelectQ(status) {
 		}
 		option[4] = optionRandom;
 		dispedQnumArray[dispedQnumArray.length] = option;
-		Qnum = ansRandom;
-		return option;
+		return;
 	}
 }
 
@@ -821,7 +824,6 @@ function Finish(status) {
 
 function Retry(status) {
 	Qcnt = 0;
-	Qnum = 0;
 	correct = 0;
 	incorrect = 0;
 	dispedQnumArray.length = 0;
