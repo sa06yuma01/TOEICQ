@@ -1,0 +1,66 @@
+<html>
+
+<head>
+	<title>頻出表現 Part5</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+	<h1 align="center">TOEICQ</h1>
+
+	<h2 align="center">頻出表現 Part5</h2>
+
+	<div align="center" id="score" class="none">
+		<h2>スコア</h2>
+		<h2>
+			<div id="scoreNum"></div>
+		</h2>
+	</div>
+
+	<div align="center" id="startQ">
+		<button type="button" id="startButton0" class="infoButton" onclick="SelectWordPart(0, 5)">最初から（英語→日本語）</button>
+		<br>
+		<button type="button" id="startButton1" class="infoButton" onclick="SelectWordPart(1, 5)" style="margin-top: 10px;">最初から（日本語→英語）</button>
+	</div>
+
+	<div class="childInline">
+		<h3 align="center" style="margin-right: 10px;">
+			<div id="Qcnt"></div>
+		</h3>
+		<h2 align="center">
+			<div id="Qsentence"></div>
+		</h2>
+		<button type="button" id="speak" style="margin-left: 10px;" class="infoButton none">聞く</button>
+	</div>
+
+	<div align="center">
+		<button type="button" id="dispOptionButton" class="infoButton none" style="margin-bottom: 10px;">選択肢を表示</button>
+	</div>
+
+	<div align="center" id="options" class="none">
+		<div class="childCenter">
+			<button type="button" id="option1" class="selectButton"></button><p>
+			<button type="button" id="option2" class="selectButton"></button><p>
+			<button type="button" id="option3" class="selectButton"></button><p>
+			<button type="button" id="option4" class="selectButton"></button><p>
+		</div>
+	</div>
+	<div align="center" id="result"></div>
+	<br>
+	<div align="center" id="next" class="none">
+		<button type="button" id="nextButton" class="infoButton">次へ</button>
+	</div>
+	<div align="center" id="retry" class="none">
+		<button type="button" id="retryButton" class="infoButton">間違えた問題を復習する</button>
+	</div>
+	<br>
+
+	<div align="center">
+		<a href="index.html">トップページへ戻る</a>
+	</div>
+
+	<script type="text/javascript" src="./hinshutsu.js"></script>
+</body>
+
+</html>
